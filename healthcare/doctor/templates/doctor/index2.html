@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+<base href="/" >
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HealthyWE</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+    {% lopythad static %}
+	<link rel="icon" href="{%static 'home/assets/img/logo.jpg'%}">
+
+	<!--=============================================
+    =            CSS  files       =
+    =============================================-->
+
+    <meta name="csrf-token" content="k4YbYmkgDSoVqltdSVzojcZelbb5e3gZPIoq4low">
+
+<!-- Vendor CSS -->
+<link href="doctor/assets/css/vendors.css" rel="stylesheet">
+<link href="doctor/assets/vendors/sweetalert2/css.css" rel="stylesheet">
+<!-- Main CSS -->
+<link href="doctor/assets/css/style.css" rel="stylesheet">
+<link href="doctor/assets/css/custom.css" rel="stylesheet">
+<style>
+        .hero-slider-bg-new-8{
+        background-image:url("http://oktrolly.com/storage/products/93yT5wxL6unZfameTUhK4TfuaRGIBJceNzIB36mr.jpeg");
+        /* background:red; */
+    }
+        .hero-slider-bg-new-9{
+        background-image:url("http://oktrolly.com/storage/products/O5rIuLgguOOd8ETpJkCgtfwpeK0tifzbM4I6s8Ap.jpeg");
+        /* background:red; */
+    }
+        .hero-slider-bg-new-10{
+        background-image:url("http://oktrolly.com/storage/products/5fiFoIBd5WG5Y528bH7CPrk5AFmOIA7mGpTCpRL4.jpeg");
+        /* background:red; */
+    }
+    </style>
+
+
+<style>
+    .icon-service p {
+    font-weight:600;
+}
+p.error{
+    color:red;
+    padding:5px;
+}
+</style>
+<style type="text/css">
+    /* Absolute Center Spinner */
+  .loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  /* Transparent Overlay */
+  .loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+      background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+    background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+  }
+
+  /* :not(:required) hides these rules from IE9 and below */
+  .loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 150ms infinite linear;
+    -moz-animation: spinner 150ms infinite linear;
+    -ms-animation: spinner 150ms infinite linear;
+    -o-animation: spinner 150ms infinite linear;
+    animation: spinner 150ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+  }
+
+  /* Animation */
+
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes  spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .c_red{
+      color:red;
+  }
+
+  .rating {
+      overflow: hidden;
+      display: inline-block;
+  }
+  .rating-input {
+      float: right;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      margin: 0 0 0 -16px;
+      opacity: 0;
+  }
+
+.rating:hover .rating-star:hover,
+  .rating:hover .rating-star:hover ~ .rating-star,
+  .rating-input:checked ~ .rating-star {
+      background-position: 0 0;
+  }
+
+   .rating-star,
+  .rating:hover .rating-star {
+    position: relative;
+      display: block;
+    float: right;
+      width: 16px;
+      height: 16px;
+      background: url('https://www.everythingfrontend.com/samples/star-rating/star.png') 0 -16px;
+  }
+
+
+  </style>
+
+</head>
+
+<body>
+    <div class="loading" id="LOADING" style="display:none;">Loading&#8230;</div>
+    <div class="page-wrapper-blue">
+
+        <!--====================  Header area ====================-->
+
+        <div class="header-area header-sticky">
+            <!--====================  Navigation top ====================-->
+
+            <div class="navigation-top">
+                <!--====================  navigation section ====================-->
+
+                <div class="navigation-top-topbar pt-10 pb-10">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-md-6 text-center text-md-left">
+                                <!--=======  header top social links  =======-->
+
+
+                                <!--=======  End of header top social links  =======-->
+                            </div>
+                            <div class="col-lg-4 offset-lg-4 col-md-6">
+                                <!--=======  header top dropdown container  =======-->
+
+                                <div class="headertop-dropdown-container justify-content-center justify-content-md-end">
+                                    <div class="header-top-single-dropdown">
+                                        <a href="javascript:void(0)" class="active-dropdown-trigger" id="user-options">My Account <i class="ion-ios-arrow-down"></i></a>
+                                        <!--=======  dropdown menu items  =======-->
+
+                                        <div class="header-top-single-dropdown__dropdown-menu-items deactive-dropdown-menu extra-small-mobile-fix">
+                                            <ul>
+                                                <li><a href="http://127.0.0.1:8000/doctor/register">Register</a></li>
+                                                <li><a href="http://127.0.0.1:8000/doctor/login">Login</a></li>
+                                                                                                <li><a href="user/profile">My Account</a></li>
+
+                                                <li><a href="http://127.0.0.1:8000//doctors?wishlist=true">My Appointments</a></li>
+
+
+                                                <li><a href="Logout">Logout</a></li>
+                                                                                            </ul>
+                                        </div>
+
+                                        <!--=======  End of dropdown menu items  =======-->
+                                    </div>
+
+
+                                </div>
+
+                                <!--=======  End of header top dropdown container  =======-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--====================  End of navigation section  ====================-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!--====================  navigation top search ====================-->
+
+
+                            <div class="navigation-top-search-area pt-25 pb-25">
+                                <div class="row align-items-center">
+                                    <div class="col-6 col-xl-2 col-lg-3 order-1 col-md-6 col-sm-5">
+                                        <!--=======  logo  =======-->
+
+                                        <div class="logo">
+                                            <a href="http://127.0.0.1:8000/">
+                                                <img src="doctors/assets/img/logo.jpg" class="img-fluid" alt="">
+                                            </a>
+                                        </div>
+
+                                        <!--=======  End of logo  =======-->
+                                    </div>
+
+                                    <div class="col-xl-5 offset-xl-1 col-lg-4 order-4 order-lg-2 mt-md-25 mt-sm-25">
+                                        <!--=======  search bar  =======-->
+
+                                        <div class="search-bar">
+                                            <form action="static/doctotr" method="get">
+                                            <input type="search" name="query" value="" placeholder="Search For Products Here ...">
+                                                <button type="submit"> <i class="icon-search"></i></button>
+                                            </form>
+                                        </div>
+
+                                        <!--=======  End of search bar  =======-->
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-3 order-3 order-sm-2 order-lg-3 order-xs-3 col-md-4 col-sm-5 text-center text-sm-left mt-xs-25">
+                                        <!--=======  customer support text  =======-->
+
+                                        <div class="customer-support-text">
+                                            <div class="icon">
+                                                <img src="..." class="img-fluid" alt="">
+                                            </div>
+
+                                            <div class="text">
+                                                <span>Helpline Number</span>
+                                                <p>(08) 12 345 789</p>
+                                            </div>
+                                        </div>
+
+                                        <!--=======  End of customer support text  =======-->
+                                    </div>
+
+                                    <div class="col-6 col-xl-1 col-lg-2 text-right order-2 order-sm-3 order-lg-4 order-xs-2 col-md-2 col-sm-2">
+                                      <!--  =======  cart icon  =======
+
+                                        <div class="header-cart-icon">
+
+                                            <a href="http://oktrolly.com/cart" id="small-cart-trigger" class="small-cart-trigger">
+                                                <i class="icon-shopping-cart"></i>
+                                                <span class="cart-counter">1</span>
+                                            </a>
+
+
+                                        </div> -->
+
+                                        <!--=======  End of cart icon  =======-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--====================  End of navigation top search  ====================-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--====================  End of Navigation top  ====================-->
+
+            <!--====================  navigation menu ====================-->
+
+            <div class="navigation-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- navigation section -->
+                            <div class="main-menu d-none d-lg-block">
+                            <nav>
+                                <ul>
+                                                                            <li class="active"><a href="http://oktrolly.com">HOME</a></li>
+
+                                                                            <li class=""><a href="about/us">ABOUT US</a></li>
+
+                                                                            <li class=""><a href="/doctors">DOCTORS CATEGORY</a></li>
+
+                                                                            <li class=""><a href="/blogs">BLOGS</a></li>
+
+                                                                            <li class=""><a href="/feedback">ANY FEEDBACK ?</a></li>
+
+                                                                            <li class=""><a href="/career/with/us">CAREER</a></li>
+
+                                                                            <li class=""><a href="/contact/us">CONTACT US</a></li>
+
+
+                                </ul>
+                            </nav>
+
+                            </div>
+                            <!-- end of navigation section -->
+
+                            <!-- Mobile Menu -->
+                            <div class="mobile-menu-wrapper d-block d-lg-none pt-15">
+                                <div class="mobile-menu"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--====================  End of navigation menu  ====================-->
+        </div>
+
+        <div class="hero-slider-area mb-40">
+
+    <!--=======  hero slider wrapper  =======-->
+
+    <div class="hero-slider-wrapper">
+        <div class="ht-slick-slider"
+        data-slick-setting='{
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "arrows": false,
+            "dots": true,
+            "autoplay": true,
+            "autoplaySpeed": 5000,
+            "speed": 1000,
+            "fade": true
+        }'
+        data-slick-responsive='[
+            {"breakpoint":1501, "settings": {"slidesToShow": 1} },
+            {"breakpoint":1199, "settings": {"slidesToShow": 1} },
+            {"breakpoint":991, "settings": {"slidesToShow": 1} },
+            {"breakpoint":767, "settings": {"slidesToShow": 1} },
+            {"breakpoint":575, "settings": {"slidesToShow": 1} },
+            {"breakpoint":479, "settings": {"slidesToShow": 1} }
+        ]'
+        >
+                    <!--=======  single slider item  =======-->
+
+            <div class="single-slider-item">
+            <div class="hero-slider-item-wrapper hero-slider-item-wrapper--fullwidth hero-slider-bg-new-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="hero-slider-content">
+                                    <p class="slider-title slider-title--small">ohho come on</p>
+                                    <p class="slider-title slider-title--big-bold">hello</p>
+
+                                    <a class="theme-button hero-slider-button" href="/">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <!--=======  single slider item  =======-->
+
+
+                        <!--=======  End of single slider item  =======-->
+
+
+
+            <!--=======  single slider item  =======-->
+
+
+
+            <!--=======  End of single slider item  =======-->
+
+
+
+        </div>
+    </div>
+
+    <!--=======  End of hero slider wrapper  =======-->
+</div>
+
+<!--====================  End of hero slider area  ====================-->
+
+<!--====================  split banner area ====================-->
+
+<div hidden class="split-banner-area mb-40 mb-sm-30">
+    <div class="container">
+        <div class="row row-5">
+            <div class="col-md-6 mb-sm-10">
+                <!--=======  single split banner  =======-->
+
+                <div class="single-split-banner">
+                    <div class="single-split-banner__image">
+                        <a href="shop-left-sidebar.html">
+                            <img src="assets/img/banners/banner8.jpg" class="img-fluid" alt="">
+                            <div class="single-split-banner__image__content">
+                                <p class="split-banner-title split-banner-title--light">New Collection</p>
+                                <p class="split-banner-title split-banner-title--bold">Roma ArmChair</p>
+                                <p class="split-banner-title split-banner-title--price">from <span class="amount"><i class="fa fa-inr"></i>&nbsp;37.89</span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!--=======  End of single split banner  =======-->
+            </div>
+            <div class="col-md-6 mb-sm-10">
+                <!--=======  single split banner  =======-->
+
+                <div class="single-split-banner">
+                    <div class="single-split-banner__image">
+                        <a href="shop-left-sidebar.html">
+                            <img src="assets/img/banners/banner9.jpg" class="img-fluid" alt="">
+                            <div class="single-split-banner__image__content">
+                                <p class="split-banner-title split-banner-title--light">The Original</p>
+                                <p class="split-banner-title split-banner-title--bold">Toby Chair</p>
+                                <p class="split-banner-title split-banner-title--price">from <span class="amount"><i class="fa fa-inr"></i>&nbsp;35.89</span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!--=======  End of single split banner  =======-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====================  End of split banner area  ====================-->
+
+
+<!--====================  product single row counter slider area ====================-->
+
+<div class="product-single-row-slider-area mb-40">
+    <div class="container">
+                <div class="row align-items-center">
+            <div class="col-lg-7">
+                <!--=======  section title  =======-->
+
+                <div class="section-title mb-20">
+                    <h2>Water Tank</h2>
+                </div>
+
+                <!--=======  End of section title  =======-->
+            </div>
+
+            <div class="col-lg-5">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!--=======  product single row slider wrapper  =======-->
+
+                <div class="product-single-row-slider-wrapper">
+                    <div class="ht-slick-slider"
+                    data-slick-setting='{
+                        "slidesToShow": 4,
+                        "slidesToScroll": 1,
+                        "dots": false,
+                        "autoplay": false,
+                        "autoplaySpeed": 5000,
+                        "speed": 1000,
+                        "arrows": true,
+                        "infinite": false,
+                        "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-ios-arrow-left" },
+                        "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-ios-arrow-right" }
+                    }'
+                    data-slick-responsive='[
+                        {"breakpoint":1501, "settings": {"slidesToShow": 4} },
+                        {"breakpoint":1199, "settings": {"slidesToShow": 4} },
+                        {"breakpoint":991, "settings": {"slidesToShow": 3} },
+                        {"breakpoint":767, "settings": {"slidesToShow": 2, "arrows": false} },
+                        {"breakpoint":575, "settings": {"slidesToShow": 2, "arrows": false} },
+                        {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
+                    ]'
+                    >
+
+
+                        <!--=======  single slider product  =======-->
+
+                        <div class="single-slider-product-wrapper">
+                            <div class="single-slider-product">
+
+
+                        <!--=======  single slider product  =======-->
+
+
+
+                        <!--=======  single slider product  =======-->
+
+
+
+                <!--=======  End of product single row slider wrapper  =======-->
+            </div>
+        </div>
+                <div class="row align-items-center">
+            <div class="col-lg-7">
+                <!--=======  section title  =======-->
+
+                <div class="section-title mb-20">
+                    <h2>Top Selling</h2>
+                </div>
+
+                <!--=======  End of section title  =======-->
+            </div>
+
+            <div class="col-lg-5">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!--=======  product single row slider wrapper  =======-->
+
+                <div class="product-single-row-slider-wrapper">
+                    <div class="ht-slick-slider"
+                    data-slick-setting='{
+                        "slidesToShow": 4,
+                        "slidesToScroll": 1,
+                        "dots": false,
+                        "autoplay": false,
+                        "autoplaySpeed": 5000,
+                        "speed": 1000,
+                        "arrows": true,
+                        "infinite": false,
+                        "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-ios-arrow-left" },
+                        "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-ios-arrow-right" }
+                    }'
+                    data-slick-responsive='[
+                        {"breakpoint":1501, "settings": {"slidesToShow": 4} },
+                        {"breakpoint":1199, "settings": {"slidesToShow": 4} },
+                        {"breakpoint":991, "settings": {"slidesToShow": 3} },
+                        {"breakpoint":767, "settings": {"slidesToShow": 2, "arrows": false} },
+                        {"breakpoint":575, "settings": {"slidesToShow": 2, "arrows": false} },
+                        {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
+                    ]'
+                    >
+
+
+                        <!--=======  single slider product  =======-->
+==================-->
+
+
+
+
+
+
+
+
+<!--====================  icon feature area ====================-->
+
+
+
+
+
+
+</div>
+<!--====================  End of icon feature area  ====================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--====================  blog post slider area ====================-->
+
+<div class="blog-post-slider-area mb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--=======  section title  =======-->
+
+                    <div class="section-title mb-20">
+                        <h2>Latest Blogs</h2>
+                    </div>
+
+                    <!--=======  End of section title  =======-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--=======  blog post slider wrapper  =======-->
+
+                    <div class="blog-post-slider-wrapper">
+                        <div class="ht-slick-slider"
+                        data-slick-setting='{
+                            "slidesToShow": 3,
+                            "slidesToScroll": 1,
+                            "dots": false,
+                            "autoplay": false,
+                            "autoplaySpeed": 5000,
+                            "speed": 1000,
+                            "arrows": true,
+                            "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-ios-arrow-left" },
+                            "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-ios-arrow-right" }
+                        }'
+                        data-slick-responsive='[
+                            {"breakpoint":1501, "settings": {"slidesToShow": 3} },
+                            {"breakpoint":1199, "settings": {"slidesToShow": 3} },
+                            {"breakpoint":991, "settings": {"slidesToShow": 2} },
+                            {"breakpoint":767, "settings": {"slidesToShow": 2, "arrows": false} },
+                            {"breakpoint":575, "settings": {"slidesToShow": 1, "arrows": false} },
+                            {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
+                        ]'
+                        >
+
+                        </div>
+                    </div>
+
+                    <!--=======  End of blog post slider wrapper  =======-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====================  End of blog post slider area  ====================-->
+
+<!--====================  product widget slider area ====================-->
+
+
+
+<!--====================  End of product widget slider area  ====================-->
+
+
+<!--====================  End of newsletter area  ====================-->
+
+
+    <!--====================  footer area ====================-->
+
+        <div class="footer-area">
+            <div class="container">
+                <div class="row mb-40">
+                    <div class="col-lg-12">
+                        <div class="footer-content-wrapper border-top pt-40">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <!--=======  single footer widget  =======-->
+
+                                    <div class="single-footer-widget">
+                                        <div class="footer-logo mb-25">
+                                            <img src="logo.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="footer-text-block mb-10">
+                                            <h5 class="footer-text-block__title">Address</h5>
+                                            <p class="footer-text-block__content">4710-4890 Breckinridge St, UK Burlington, VT 05401</p>
+                                        </div>
+
+                                        <div class="footer-text-block mb-10">
+                                            <h5 class="footer-text-block__title">Need Help?</h5>
+                                            <p class="footer-text-block__content">Call: 1-800-345-6789</p>
+                                        </div>
+
+                                         <div class="footer-text-block mb-10">
+                                            <h5 class="footer-text-block__title">Email Us</h5>
+                                            <p class="footer-text-block__content">info@graftgarden.com</p>
+                                        </div>
+
+                                        <div class="footer-social-icon-block">
+                                            <ul>
+                                                <li><a class="facebook-icon" href="http://www.facebook.com/"><i class="ion-social-facebook"></i></a></li>
+                                                <li><a class="twitter-icon" href="http://www.twitter.com/"><i class="ion-social-twitter"></i></a></li>
+                                                <li><a class="googleplus-icon" href="http://plus.google.com/"><i class="ion-social-googleplus"></i></a></li>
+                                                <li><a class="instagram-icon" href="http://www.instagram.com/"><i class="ion-social-instagram-outline"></i></a></li>
+                                                <li><a class="youtube-icon" href="http://www.youtube.com/"><i class="ion-social-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!--=======  End of single footer widget  =======-->
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 mt-sm-30">
+                                    <!--=======  single footer widget  =======-->
+
+                                    <div class="single-footer-widget">
+                                        <h4 class="footer-widget-title"><a href="#">Follow on Facebook</a></h4>
+
+
+
+
+                                    </div>
+
+                                    <!--=======  End of single footer widget  =======-->
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 mt-md-30 mt-sm-30">
+                                    <!--=======  single footer widget  =======-->
+
+                                    <div class="single-footer-widget">
+                                        <h5 class="montserrat-footer-widget-title">Information</h5>
+
+                                        <div class="footer-navigation">
+                                            <nav>
+                                                <ul>
+                                                    <li><a href="http://oktrolly.com/about/us">About Us</a></li>
+                                                    <li><a href="Blogs">Blogs</a></li>
+                                                    <li><a href="http://oktrolly.com/contact/us">Contact Us</a></li>
+                                                    <li><a href="http://oktrolly.com/career/with/us">Career</a></li>
+                                                    <li><a href="http://oktrolly.com/feedback">Any Feedback ?</a></li>
+                                                    <li><a href="http://oktrolly.com/faqs">FAQ's</a></li>
+                                                    <li><a href="Privacy-Policy">Privacy Policy</a></li>
+                                                    <li><a href="Terms-and-Conditions">Terms & Conditions</a></li>
+                                                    <li><a href="Disclaimer">Disclaimer</a></li>
+
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+
+                                    <!--=======  End of single footer widget  =======-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text-area">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 text-center text-md-left mb-sm-15">
+                                    <div class="copyright-text">
+                                        <p>Copyright © 2020 <a href="#">Graft Garden</a>. All Right Reserved.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-center text-md-right">
+                                    <div class="payment-logo">
+                                        <img src="assets/img/icons/payment.png" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--====================  End of footer area  ====================-->
+        <!-- scroll to top  -->
+        <button class="scroll-top"></button>
+        <!-- end of scroll to top -->
+
+
+
+
+    </div>
+
+	<!--=============================================
+    =            JS files        =
+    =============================================-->
+
+<script>
+    const __URL="http://oktrolly.com";
+    const _Notification = ()=>{
+            }
+</script>
+	<!-- Vendor JS -->
+    <script src="http://oktrolly.com/assets/js/vendors.js"></script>
+    <script src="http://oktrolly.com/assets/vendors/sweetalert2/js.js"></script>
+	<script src="http://oktrolly.com/js/utils.js"></script>
+	<!-- Active JS -->
+	<script src="http://oktrolly.com/assets/js/active.js"></script>
+
+    <script src="http://oktrolly.com/assets/js/custom.js"></script>
+
+    <script>
+        const AddToCart = ($product_id,$quantity=1,onSuccess=()=>{})=>{
+            LOADING.fadeIn("fast");
+            postReq(`ajax/add/to/cart/${$product_id}?quantity=${$quantity}`).then((d)=>{
+                LOADING.hide();
+                $('.cart-counter').html(d.count);
+                TOAST(d.message);
+                onSuccess();
+            }).catch((err)=>{
+                LOADING.hide();
+            });
+        }
+
+        const RemoveFromCart = ($product_id,$quantity=1,full=null,onSuccess=()=>{})=>{
+            LOADING.fadeIn("fast");
+            postReq(`ajax/remove/from/cart/${$product_id}?quantity=${$quantity}&full=${full || ''}`).then((d)=>{
+                LOADING.hide();
+                $('.cart-counter').html(d.count);
+                TOAST(d.message);
+                onSuccess();
+            }).catch((err)=>{
+                LOADING.hide();
+            });
+        }
+    </script>
+
+    <!--=====  End of JS files ======-->
+</body>
+
+
+
+</html>
+    <script>
+         function sendVerificationCode(ele){
+
+                let form = $(ele).closest('form');
+                let email = form.find('input[name="email"]').val();
+                let container = form.find('.containe_r');
+                let code = form.find('[name="otp"]');
+                let original_place_holder=code.attr('placeholder');
+                if(email.trim()=='')
+                    return WARN("Please Enter Email Account First");
+
+                ajaxLoader(container);
+                code.val('');
+                code.attr('placeholder','Sending verification code........');
+                postReq('ajax/send/verification/code',{email},true).then((d)=>{
+                    ajaxLoader(container);
+                    form.find('input[name="token"]').val(d.token);
+                    code.attr('placeholder',original_place_holder);
+                    WARN(d.message,'success');
+                }).catch((err)=>{
+
+                    ajaxLoader(container);
+                    code.attr('placeholder',original_place_holder);
+                });
+
+
+}
+
+    </script>
